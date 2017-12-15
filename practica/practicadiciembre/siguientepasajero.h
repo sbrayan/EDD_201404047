@@ -11,6 +11,7 @@ public:
     void agregarpasajeroacolasimple(int cantidad);
     void agregarescritorios(int cantidadescritorios);
     void moverpasajeros();
+    void generargrafogeneral();
 };
 
 #endif // SIGUIENTEPASAJERO_H

@@ -4,7 +4,11 @@
 #include "pila.h"
 #include "listasimple.h"
 using namespace std;
-struct doble;
+//struct doble;
+typedef struct doble doble;
+
+
+using namespace std;
 
 
 class dobleenlazada

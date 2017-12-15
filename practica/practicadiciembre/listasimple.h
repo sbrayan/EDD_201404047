@@ -12,6 +12,7 @@ public:
     nodosimple *crearnodo(int,int,int,int);
     nodosimple *insertarnodo(int,int,int,int);
     void mostrar();
+    void mostrarmantenimiento();
     void eliminar();
 };
 

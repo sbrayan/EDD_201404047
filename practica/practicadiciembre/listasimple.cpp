@@ -64,9 +64,8 @@ void listasimple:: mostrar()
 
 
     ofstream grafo;
-    grafo.open("grafo2.txt");
-    grafo<<"digraph G {\n";
-
+    grafo.open("grafogrande.txt",ios::app);
+    grafo<<"subgraph estaciones {\n";
 
     struct nodosimple *s;
 
@@ -108,6 +107,56 @@ void listasimple:: mostrar()
 
 
 }
+
+
+void listasimple::mostrarmantenimiento(){
+
+        ofstream grafo;
+        grafo.open("grafogrande.txt",ios::app);
+        grafo<<"subgraph estaciones {\n";
+        struct nodosimple *s;
+
+        if(cabezasimple==finalsimple && cabezasimple==NULL)
+        {
+            cout<<"la lista esta vacia"<<endl;
+            grafo<<"}";
+          //  return;
+        }
+        else {
+            s=finalsimple;
+
+
+            if(s->siguiente==NULL){
+                grafo<<"\""<<"estacion-"<<s->identificacion<<"\"";
+              //  cout<<s->tipo<<endl;
+
+            }
+            else{
+                while(s->siguiente!=NULL){
+                     grafo<<"\""<<"estacion-"<<s->identificacion<<"\""<<"->";
+                    //cout<<s->tipo<<"<->";
+                    s=s->siguiente;
+
+                }
+                grafo<<"\""<<"estacion-"<<s->identificacion<<"\"";
+                grafo<<";"<<"\n";
+                //cout<<s->tipo<<endl;
+
+            }
+
+            grafo<<"}";
+
+        }
+
+        grafo.close();
+       // system("C:\\Graphviz2.38\\bin\\dot.exe -Tpng grafo2.txt -o grafo2.png");
+
+
+
+
+
+}
+
 
 
 

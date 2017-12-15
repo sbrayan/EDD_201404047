@@ -8,6 +8,13 @@ class siguienteturno
 public:
     siguienteturno();
     void agregaraviones(int);
+    void agregaraviones2(int);
+    void agregarestaciones(int);
+    void mostrarestaciones();
+    void generargrafogrande();
+    void pruebaeliminar();
+
+    void agregaravionesamantenimiento();
 
 };
 

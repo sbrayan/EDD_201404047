@@ -33,7 +33,12 @@ SOURCES += \
     siguienteturno.cpp \
     siguientepasajero.cpp \
     dobleenlazada.cpp \
-    pila.cpp
+    pila.cpp \
+    dobleenlazada2.cpp \
+    listasimpleescritorios.cpp \
+    listaavion2.cpp \
+    listamantenimiento.cpp \
+    listaavionespera.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -44,7 +49,13 @@ HEADERS += \
     siguienteturno.h \
     siguientepasajero.h \
     dobleenlazada.h \
-    pila.h
+    pila.h \
+    dobleenlazada2.h \
+    listasimpleescritorios.h \
+    listaavion2.h \
+    listamantenimiento.h \
+    listaavionespera.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    segundaventana.ui

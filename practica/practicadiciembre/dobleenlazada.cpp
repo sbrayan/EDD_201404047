@@ -7,13 +7,16 @@ dobleenlazada::dobleenlazada()
 }
 
 using namespace std;
+
+
 struct doble{
-    string id;
-    struct nodopila *iniciopila=NULL;
-    struct nodosimple *iniciolista=NULL;
-    struct doble *siguiente;
-    struct doble *anterior;
+   string id;
+   struct nodopila *iniciopila=NULL;
+   struct nodosimple *iniciolista=NULL;
+   struct doble *siguiente;
+   struct doble *anterior;
 } *cabezadoble=NULL,*finaldoble=NULL;
+
 
 
 doble* dobleenlazada::crearnodo(string id)

@@ -16,12 +16,19 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
 }
+ int cantidadaviones=0;
+ int cantidaturnos=0;
+ int cantidadmantenimiento=0;
+ int cantidadescritorios=0;
     listaavion lavion;
     listasimple lsimple;
     listacircular lcircu;
     randommetodo randu;
     pila lp;
 
+    siguientepasajero st;
+    siguienteturno stt;
+    bool ok;
 
 
 MainWindow::~MainWindow()
@@ -32,59 +39,36 @@ MainWindow::~MainWindow()
 void MainWindow::on_btnaceptar_clicked()
 {
 
-/*    lp.insertarnodo("1");
-    lp.insertarnodo("2");
-    lp.insertarnodo("3");
-    lp.insertarnodo("4");
-    lp.insertarnodo("5");
-    lp.insertarnodo("6");
-    lp.mostrar(); */
-    /*
+     cantidadaviones=ui->lineaviones->text().toInt(&ok,10);
+     cantidaturnos= ui->lineturnos->text().toInt(&ok,10);
+     cantidadmantenimiento=ui->linemantenimiento->text().toInt(&ok,10);
+     cantidadescritorios= ui->lineescritorios->text().toInt(&ok,10);
 
-    lavion.insertarnodo("uno",1,1,1);
-    lavion.insertarnodo("dos",2,2,2);
-    lavion.insertarnodo("tres",3,3,3);
-    lavion.insertarnodo("cuatro",4,4,4);
-    lavion.insertarnodo("cinco",4,4,4);
-    lavion.mostrar(); */
+    ui->lineaviones->setEnabled(false);
+    ui->lineaviones->setEnabled(false);
+    ui->linemantenimiento->setEnabled(false);
+    ui->lineescritorios->setEnabled(false);
 
-    lsimple.insertarnodo(1,1,1,1);
-    lsimple.insertarnodo(2,1,1,1);
-    lsimple.insertarnodo(3,1,1,1);
-    lsimple.insertarnodo(4,1,1,1);
-    lsimple.insertarnodo(5,1,1,1);
-    lsimple.mostrar();
-   // lsimple.eliminar();
-
-  /*  lcircu.insertarnodo(1);
-    lcircu.insertarnodo(2);
-    lcircu.insertarnodo(3);
-    lcircu.insertarnodo(4);
-    lcircu.insertarnodo(5);
-    lcircu.insertarnodo(6);
-    lcircu.insertarnodo(7);
-    lcircu.insertarnodo(8);
-    lcircu.mostrar();  */
+    stt.agregaraviones(cantidadaviones);
+    stt.agregarestaciones(cantidadmantenimiento);
+    stt.generargrafogrande();
 
 
 }
 
 void MainWindow::on_pushButton_clicked()
 {
-    /*
-    int randoom;
-    bool first = true;
 
-    if(first)
-    {
-        srand(time(0));
-        first = false;
-    }
-    randoom=rand()%(3-1+1)+1;
-    cout<<randoom<<endl; */
-    siguientepasajero st;
-   // st.agregarescritorios(10);
 
+   // st.moverpasajeros();
+    stt.agregaraviones(cantidadaviones);
+    //stt.agregaravionesamantenimiento();
+    stt.generargrafogrande();
+
+    //stt.generargrafogrande();
+
+   // st.agregarpasajeroacolasimple(10);
+   // st.moverpasajeros();
 
  /* srand(time(NULL));
     int ale=0;
@@ -93,8 +77,14 @@ void MainWindow::on_pushButton_clicked()
 
 
 
-    //lp.eliminar();
-    //lp.mostrar();
+}
 
+void MainWindow::on_pushButton_2_clicked()
+{
+   // stt.agregaravionesamantenimiento();
+    stt.pruebaeliminar();
+
+   // stt.agregaravionesamantenimiento();
+    stt.generargrafogrande();
 
 }

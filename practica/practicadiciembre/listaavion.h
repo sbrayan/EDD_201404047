@@ -16,6 +16,7 @@ public:
     avion *insertarnodo(string tipo,int pasajero,int desabordaje,int mantenimiento);
 
     void mostrar();
+    void mostrar2();
     void eliminar();
 };
 
