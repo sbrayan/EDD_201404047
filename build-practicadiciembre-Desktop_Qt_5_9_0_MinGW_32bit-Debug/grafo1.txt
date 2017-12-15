@@ -1,0 +1,2 @@
+digraph G {
+"P4""P4"}

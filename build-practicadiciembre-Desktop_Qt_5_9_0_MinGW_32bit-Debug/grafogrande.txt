@@ -1,0 +1,8 @@
+digraph G {
+subgraph aviones {
+"M8"->"G7"->"P6";
+"P6"->"G7"->"M8";
+}subgraph estaciones {
+}subgraph listaespera {
+"avion-M9"->"avion-G10"->"avion-P11"->"avion-P12"->"avion-M13"->"avion-M14"->"avion-G15"->"avion-G16"->"avion-G17"->"avion-M18"->"avion-P19"->"avion-M20";
+}}
