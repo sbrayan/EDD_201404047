@@ -1,0 +1,39 @@
+
+digraph G{
+node [shape = record,height = .1];
+
+node13[label = "<f0> |<f1>Amer64|<f2>"];
+node4[label = "<f0> |<f1>Asro25|<f2>"];
+node7[label = "<f0> |<f1>Avey48|<f2>"];
+node12[label = "<f0> |<f1>Axon36|<f2>"];
+node9[label = "<f0> |<f1>Idin94|<f2>"];
+node5[label = "<f0> |<f1>Imre78|<f2>"];
+node10[label = "<f0> |<f1>Jado86|<f2>"];
+node8[label = "<f0> |<f1>Kaez42|<f2>"];
+node2[label = "<f0> |<f1>Mord86|<f2>"];
+node11[label = "<f0> |<f1>Roan78|<f2>"];
+node3[label = "<f0> |<f1>Stin94|<f2>"];
+node6[label = "<f0> |<f1>Taon95|<f2>"];
+"node2":f0->"node4":f1;
+
+"node4":f0->"node13":f1;
+
+"node4":f2->"node5":f1;
+
+"node5":f0->"node7":f1;
+
+"node7":f2->"node9":f1;
+
+"node9":f0->"node12":f1;
+
+"node5":f2->"node8":f1;
+
+"node8":f0->"node10":f1;
+
+"node2":f2->"node3":f1;
+
+"node3":f0->"node11":f1;
+
+"node3":f2->"node6":f1;
+
+}

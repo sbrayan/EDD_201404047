@@ -1,0 +1,31 @@
+digraph G{
+node[shape=box, style=filled, color=Gray95];
+edge[color=black];
+rankdir=UD;
+{rank=min;"Matriz";
+"x10";
+};
+
+
+
+{rank=same;"y10";
+"5:10,10";
+};
+
+
+
+
+
+"x10"->"5:10,10";
+
+
+
+
+"y10"->"5:10,10";
+
+
+Matriz -> "x10";
+
+
+Matriz -> "y10"[rankdir=UD];
+}
