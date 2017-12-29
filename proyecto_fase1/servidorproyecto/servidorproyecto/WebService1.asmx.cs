@@ -22,6 +22,8 @@ namespace servidorproyecto
       
         private static ArbolBinario nnuevo;
         private static matriz mmatriz;
+        public Listatopdiez pruebalista;
+       
         matriz nuevo = WebService1.instanciamatriz();
         ArbolBinario abb = WebService1.instanciarbol();
 
@@ -84,6 +86,15 @@ namespace servidorproyecto
         }
 
         [WebMethod]
+        public void mostraarbolconlistas()
+        {
+            abb.creararbolgeneral();
+            //nnuevo.creararbol();
+
+        }
+
+
+        [WebMethod]
         public int calcularCantidadRamas()
         {
             int ramas = 0;
@@ -104,6 +115,8 @@ namespace servidorproyecto
             //nnuevo.creararbol();
 
         }
+
+
 
         [WebMethod]
         public string cargarlistausuarios()

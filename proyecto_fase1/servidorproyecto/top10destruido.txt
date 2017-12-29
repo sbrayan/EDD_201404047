@@ -1,0 +1,6 @@
+digraph G{
+"1Mord86,75"->"2Stin94,75"
+"2Stin94,75"->"1Mord86,75"
+"2Stin94,75"->"3Taon95,8"
+"3Taon95,8"->"2Stin94,75"
+}

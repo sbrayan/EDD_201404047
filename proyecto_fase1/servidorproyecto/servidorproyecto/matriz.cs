@@ -663,12 +663,7 @@ namespace servidorproyecto
                 }
 
 
-                /*
-                ProcessStartInfo hola = new ProcessStartInfo(@"C:\Program Files (x86)\Graphviz2.38\bin\dot.exe");
-                hola.Arguments = "-Tpng C:/Users/Admin/Documents/Visual Studio 2015/Projects/servidorproyecto/grafo.txt -o  C:/Users/Admin/Documents/Visual Studio 2015/Projects/servidorproyecto/maatriz.png -maatriz.dot";
-                Process.Start(hola); */
-
-            }
+             }
             catch (Exception e)
             {
 

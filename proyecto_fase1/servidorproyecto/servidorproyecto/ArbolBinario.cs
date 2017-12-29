@@ -3,14 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.IO;
+using System.Diagnostics;
 
 namespace servidorproyecto
 {
     public class ArbolBinario
     {
         private static int contadoraux;
-      
-        
+
+        private static Listatopdiez listatop;
+        private static listatopuniperdidas listatoperdido;
+     
+             
+       Listatopdiez ltop10 = ArbolBinario.instanciatop();
+        listatopuniperdidas ltop10p = ArbolBinario.instanciaperdido();
+
+        public static Listatopdiez instanciatop()
+        {
+            if (listatop == null)
+                listatop = new Listatopdiez();
+
+            return listatop;
+        }
+        public static listatopuniperdidas instanciaperdido()
+        {
+            if (listatoperdido == null)
+            {
+                listatoperdido = new listatopuniperdidas();
+            }
+            return listatoperdido;
+        }
+
+
+
+
         int contarnodos = ArbolBinario.Contadornodos();
 
         public static int Contadornodos()
@@ -348,6 +374,25 @@ namespace servidorproyecto
             StreamWriter grafo3 = new StreamWriter("C:\\Users\\Admin\\Documents\\Visual Studio 2015\\Projects\\servidorproyecto\\arbol1.txt", true);
             grafo3.WriteLine("}");
             grafo3.Close();
+
+            try
+            {
+                using (var dot = new Process())
+                {
+                    // dot.StartInfo.Verb = "runas"; // Run process as admin.
+                    dot.StartInfo.FileName = @"C:\Program Files (x86)\Graphviz2.38\bin\dot.exe";
+                    dot.StartInfo.WorkingDirectory = @"C:/Users/Admin/Documents/Visual Studio 2015/Projects/servidorproyecto";
+                    dot.StartInfo.Arguments = "-Tpng  arbol1.txt -o arbol.png ";
+                    dot.Start();
+                    dot.WaitForExit();
+                }
+
+
+            }
+            catch (Exception e)
+            {
+
+            }
         }
 
 
@@ -369,6 +414,25 @@ namespace servidorproyecto
             StreamWriter grafo3 = new StreamWriter("C:\\Users\\Admin\\Documents\\Visual Studio 2015\\Projects\\servidorproyecto\\arbolgeneral.txt", true);
             grafo3.WriteLine("}");
             grafo3.Close();
+
+            try
+            {
+                using (var dot = new Process())
+                {
+                    // dot.StartInfo.Verb = "runas"; // Run process as admin.
+                    dot.StartInfo.FileName = @"C:\Program Files (x86)\Graphviz2.38\bin\dot.exe";
+                    dot.StartInfo.WorkingDirectory = @"C:/Users/Admin/Documents/Visual Studio 2015/Projects/servidorproyecto";
+                    dot.StartInfo.Arguments = "-Tpng  arbolgeneral.txt -o arbolgeneral.png ";
+                    dot.Start();
+                    dot.WaitForExit();
+                }
+
+
+            }
+            catch (Exception e)
+            {
+
+            }
         }
 
 
@@ -434,9 +498,53 @@ namespace servidorproyecto
                         parsedData.Add(row);
                         insertarlistausuario(row[0],row[1],row[2],row[3],row[4],Convert.ToInt32(row[5]));
 
+                        nodotop aux = ltop10.buscarlistatop10(row[0]);
+                        nodotopdestruido auxdestruido = ltop10p.buscarlistatop(row[0]);
+
+                        if (aux!=null)//quiere decir que si lo encontro
+                        {
+                            aux.JuegosGanados = aux.JuegosGanados + 1;
+
+
+                        }
+                        else if (aux==null)
+                        {
+                            //se inserta
+                            if (Convert.ToInt32(row[5]) == 1){ //1 gano, 0 perdio
+                                ltop10.insertaralfinal(row[0], Convert.ToInt32(row[5]));
+                            }
+                            else
+                            {
+                                ltop10.insertaralfinal(row[0], 0);
+                            }
+                        }
+                        //fin top 10 de jugadores con mas partidasd ganadas
+
+                        //**************************para encontrar top 10 de unidades destruidas******
+                        if (auxdestruido != null)//quiere decir que si lo encontro
+                        {
+                           
+                            auxdestruido.UniPerdidas = auxdestruido.UniPerdidas + Convert.ToInt32(row[4]);
+
+
+                        }
+                        else if (auxdestruido == null)
+                        {
+                            //se inserta
+                            
+                                ltop10p.insertaralfinal(row[0], Convert.ToInt32(row[4]));
+                            
+                        }
+
+
+
                     }
 
                 }
+                ltop10.ordenar();
+                ltop10.mostrar();
+                ltop10p.ordenar();
+                ltop10p.mostrar();
             }
         } //fin csvcargar usuarios
 
